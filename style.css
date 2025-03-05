@@ -7,12 +7,37 @@ body {
     display: none;
 }
 
-#juego img {
+#escenario {
+    position: relative;
     width: 80%;
     max-width: 600px;
+    margin: auto;
+}
+
+#fondo {
+    width: 100%;
+}
+
+#gatita {
+    position: absolute;
+    width: 100px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .acciones button {
     margin: 5px;
     padding: 10px;
+}
+#gatita {
+    position: absolute;
+    width: 100px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: left 2s linear, transform 0.3s ease;
 }
