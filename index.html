@@ -20,14 +20,16 @@
 
     <div id="juego" class="pantalla">
         <h2 id="nombreMostrar"></h2>
-        <img id="fondo" src="cuarto.png" alt="Escenario">
+        <div id="escenario">
+            <img id="fondo" src="cuarto.png" alt="Escenario">
+            <img id="gatita" src="gatita.png" alt="Gatita" onclick="acariciar()">
+        </div>
         <div class="acciones">
             <button onclick="cambiarEscena('cuarto.png')">Cuarto</button>
             <button onclick="cambiarEscena('baño.png')">Baño</button>
             <button onclick="cambiarEscena('juego.png')">Jugar</button>
             <button onclick="cambiarEscena('cosina.png')">Comer</button>
             <button onclick="cambiarEscena('tienda.png')">Tienda</button>
-            <button onclick="acariciar()">Acariciar</button>
         </div>
         <p id="mensaje"></p>
     </div>
