@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de la Gatita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="menu">
+        <h1>Bienvenido al Juego de la Gatita</h1>
+        <button onclick="iniciarJuego()">Empezar</button>
+    </div>
+
+    <div id="adopcion" class="pantalla">
+        <h2>Adopta una gatita</h2>
+        <input type="text" id="nombreGatita" placeholder="Escribe un nombre">
+        <button onclick="adoptar()">Adoptar</button>
+    </div>
+
+    <div id="juego" class="pantalla">
+        <h2 id="nombreMostrar"></h2>
+        <img id="fondo" src="cuarto.png" alt="Escenario">
+        <div class="acciones">
+            <button onclick="cambiarEscena('cuarto.png')">Cuarto</button>
+            <button onclick="cambiarEscena('baño.png')">Baño</button>
+            <button onclick="cambiarEscena('juego.png')">Jugar</button>
+            <button onclick="cambiarEscena('cosina.png')">Comer</button>
+            <button onclick="cambiarEscena('tienda.png')">Tienda</button>
+            <button onclick="acariciar()">Acariciar</button>
+        </div>
+        <p id="mensaje"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
