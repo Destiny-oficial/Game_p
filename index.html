@@ -4,7 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de la Gatita</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .pantalla {
+            display: none;
+        }
+
+        #escenario {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        #fondo {
+            width: 100%;
+        }
+
+        #gatita {
+            position: absolute;
+            width: 100px;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            transition: left 2s linear, transform 0.3s ease;
+        }
+
+        .acciones button {
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <div id="menu">
@@ -34,6 +69,51 @@
         <p id="mensaje"></p>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function iniciarJuego() {
+            document.getElementById("menu").style.display = "none";
+            document.getElementById("adopcion").style.display = "block";
+        }
+
+        function adoptar() {
+            let nombre = document.getElementById("nombreGatita").value;
+            if (nombre.trim() === "") {
+                alert("Por favor, elige un nombre.");
+                return;
+            }
+            localStorage.setItem("gatitaNombre", nombre);
+            document.getElementById("nombreMostrar").innerText = nombre;
+            document.getElementById("adopcion").style.display = "none";
+            document.getElementById("juego").style.display = "block";
+        }
+
+        function cambiarEscena(imagen) {
+            let fondo = document.getElementById("fondo");
+            let gatita = document.getElementById("gatita");
+
+            fondo.src = imagen;
+            
+            // Hacer que la gatita camine
+            gatita.style.left = "0%"; // Inicia a la izquierda
+            gatita.style.transition = "left 2s linear";
+            
+            setTimeout(() => {
+                gatita.style.left = "50%"; // Camina al centro
+            }, 100);
+        }
+
+        function acariciar() {
+            let gatita = document.getElementById("gatita");
+            let mensaje = document.getElementById("mensaje");
+            
+            gatita.style.transform = "translateX(-50%) scale(1.1)";
+            mensaje.innerText = "Miauu~ ¡Tu gatita está feliz!";
+            
+            setTimeout(() => {
+                gatita.style.transform = "translateX(-50%) scale(1)";
+                mensaje.innerText = "";
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
