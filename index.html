@@ -69,6 +69,10 @@
         <p id="mensaje"></p>
     </div>
 
+    <!-- Efectos de sonido -->
+    <audio id="sonidoCaminar" src="caminar.mp3" preload="auto"></audio>
+    <audio id="sonidoAcariciar" src="acariciar.mp3" preload="auto"></audio>
+
     <script>
         function iniciarJuego() {
             document.getElementById("menu").style.display = "none";
@@ -90,12 +94,16 @@
         function cambiarEscena(imagen) {
             let fondo = document.getElementById("fondo");
             let gatita = document.getElementById("gatita");
+            let sonidoCaminar = document.getElementById("sonidoCaminar");
 
             fondo.src = imagen;
             
+            // Reproducir el sonido de caminar
+            sonidoCaminar.play();
+
             // Hacer que la gatita camine
             gatita.style.left = "0%"; // Inicia a la izquierda
-            gatita.style.transition = "left 0.001s linear";
+            gatita.style.transition = "left 5s linear";
             
             setTimeout(() => {
                 gatita.style.left = "50%"; // Camina al centro
@@ -105,7 +113,11 @@
         function acariciar() {
             let gatita = document.getElementById("gatita");
             let mensaje = document.getElementById("mensaje");
+            let sonidoAcariciar = document.getElementById("sonidoAcariciar");
             
+            // Reproducir el sonido de acariciar
+            sonidoAcariciar.play();
+
             gatita.style.transform = "translateX(-50%) scale(1.1)";
             mensaje.innerText = "Miauu~ ¡Tu gatita está feliz!";
             
